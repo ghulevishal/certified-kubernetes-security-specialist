@@ -1,6 +1,6 @@
   #### Explore the API Groups:
 ```sh
-kubectl --proxy 8085
+kubectl proxy --port 8085
 ```
 ```sh
 curl localhost:8085
@@ -59,9 +59,11 @@ kubectl describe rolebinding read-pods
 ```sh
 su - john
 kubectl get pods
+kubectl run john-pod --image=nginx
 kubectl exec -it john-pod -- bash
   ```
   #### Step 4 Verify API Access Action:
 ```sh
 kubectl auth can-i create deployments
+kubectl auth can-i create pods
 ```
